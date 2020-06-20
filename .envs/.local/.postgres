@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=movies_api
+POSTGRES_USER=RQuhqRKxSUywkSczfhWHwbErgpSYKuhE
+POSTGRES_PASSWORD=pMXe1Cu2XdYNaPO3ksyWU9kv164v9kmU12jh7eBDT0Vuc4xDKnCJrQppmMBbk86P

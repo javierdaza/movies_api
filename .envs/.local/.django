@@ -1,0 +1,18 @@
+# General
+# ------------------------------------------------------------------------------
+USE_DOCKER=yes
+IPYTHONDIR=/app/.ipython
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0
+
+# Celery
+# ------------------------------------------------------------------------------
+
+# Flower
+CELERY_FLOWER_USER=lRZvUYWkieNRVSQpISQYKQIKGtygCYYE
+CELERY_FLOWER_PASSWORD=2Vuf0NEoafzwDFI4U7OUffx6wqrMGKIht2ZDiAHlpS8wtkuQ4InEXRLkx0VMR65h
+
+# The Movie API Key
+# ------------------------------------------------------------------------------
+THE_MOVIE_API_KEY=add_your_movie_api_key
