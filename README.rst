@@ -31,7 +31,8 @@ Follow this steps to configure the periodic tasks from the admin
 1. In the celery crontabs section, create one that looks like
 **0 2 * * * (m/h/d/dM/MY) America/Bogota**
 
-2. Inside Periodic tasks, create one task that points to
+2. Inside Periodic tasks, create one task that points to:
+
 - Name your task
 - movies_api.movies.tasks.create_movies_database_task
 - Select the previusly created crontab schedule
