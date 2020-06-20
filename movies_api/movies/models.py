@@ -3,11 +3,12 @@ from django.db import models
 
 class Movies(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField(max_length=355)
+    description = models.TextField(max_length=1024)
     poster_path = models.CharField(null=True, max_length=100)
     ranking = models.PositiveSmallIntegerField(default=0)
     director = models.CharField(null=True, max_length=100)
     trailer = models.URLField(null=True)
+    tmdb_id = models.PositiveSmallIntegerField(default=0)
     # writers
     # actors/stars
 
@@ -17,8 +18,6 @@ class Movies(models.Model):
 
     def __str__(self):
         return self.title
-
-    # save poster with https://image.tmdb.org/t/p/w500/
 
     def save(self, *args, **kwargs):
         # add the complete route to the poster field
