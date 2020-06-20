@@ -22,69 +22,20 @@ Moved to settings_.
 
 .. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
 
-Basic Commands
---------------
 
-Setting Up Your Users
-^^^^^^^^^^^^^^^^^^^^^
+Celery tasks
+^^^^^^^^^^^^
 
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+Follow this steps to configure the periodic tasks from the admin
 
-* To create an **superuser account**, use this command::
+1. In the celery crontabs section, create one that looks like
+**0 2 * * * (m/h/d/dM/MY) America/Bogota**
 
-    $ python manage.py createsuperuser
-
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
-
-Type checks
-^^^^^^^^^^^
-
-Running type checks with mypy:
-
-::
-
-  $ mypy movies_api
-
-Test coverage
-^^^^^^^^^^^^^
-
-To run the tests, check your test coverage, and generate an HTML coverage report::
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-  $ pytest
-
-Live reloading and Sass CSS compilation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Moved to `Live reloading and SASS compilation`_.
-
-.. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
-
-
-
-Celery
-^^^^^^
-
-This app comes with Celery.
-
-To run a celery worker:
-
-.. code-block:: bash
-
-    cd movies_api
-    celery -A config.celery_app worker -l info
-
-Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
-
-
+2. Inside Periodic tasks, create one task that points to
+- Name your task
+- movies_api.movies.tasks.create_movies_database_task
+- Select the previusly created crontab schedule
+- Choose a start datetime (Day and Hour)
 
 
 
@@ -103,4 +54,11 @@ See detailed `cookiecutter-django Docker documentation`_.
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
 
 
+TODOs
+--------------
 
+1. Create 2 directories for *apps* and *api*
+2. Define what to do with the updates of each movie in create_movies_database_task
+3. Paginate endpoint for listing movies
+4. Add abstract Model for common fields like *created*, *modified* and *active*
+5. Add version of the API to URLs (http://localhost:8000/v1/movies/vote/4/)
