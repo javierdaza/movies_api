@@ -8,7 +8,7 @@ class Movies(models.Model):
     ranking = models.PositiveSmallIntegerField(default=0)
     director = models.CharField(null=True, max_length=100)
     trailer = models.URLField(null=True)
-    tmdb_id = models.PositiveSmallIntegerField(default=0)
+    tmdb_id = models.PositiveIntegerField(default=0)
     # writers
     # actors/stars
 
